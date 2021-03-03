@@ -1,0 +1,50 @@
+﻿<Window x:Class="D_30._11._2020.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:D_30._11._2020"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="197" Width="349" MinHeight="197" MinWidth="349" MaxHeight="197" MaxWidth="349">
+    <Window.Resources>
+        <ControlTemplate TargetType="TextBox" x:Key="StyleMail">
+            <Border Name="myBorder" Width="310" Height="40" BorderThickness="1"  CornerRadius="3" Background="#FF5EA0FF">
+                <Border.Effect>
+                    <DropShadowEffect/>
+                </Border.Effect>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Images\mail.png" Width="28" Margin="5,0,0,0"></Image>
+                    <TextBox Width="262" Height="22" Margin="5,0,0,0"  FontSize="14" Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Text, UpdateSourceTrigger=PropertyChanged}"  VerticalContentAlignment="Center" HorizontalContentAlignment="Left" BorderBrush="{x:Null}"></TextBox>
+                </StackPanel>
+               
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter TargetName="myBorder" Property="BorderBrush" Value="Red"></Setter>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+        <ControlTemplate TargetType="TextBox" x:Key="StyleTelephone">
+            <Border Name="myBorder" Width="310" Height="40" BorderThickness="1"  CornerRadius="3" Background="#FF767676">
+                <Border.Effect>
+                    <DropShadowEffect/>
+                </Border.Effect>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Images\telephon.png" Width="28" Margin="5,0,0,0"></Image>
+                    <TextBox Width="262" Height="22" Margin="5,0,0,0"  FontSize="14" Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Text, UpdateSourceTrigger=PropertyChanged}"  VerticalContentAlignment="Center" HorizontalContentAlignment="Left" BorderBrush="{x:Null}"></TextBox>
+                </StackPanel>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter TargetName="myBorder" Property="BorderBrush" Value="Red"></Setter>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Window.Resources>
+
+    <Grid>
+        <!--<TextBox Template="{StaticResource StyleMail}"  Margin="77,85,83,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" />-->
+        <TextBox  Template="{StaticResource StyleMail}" Text="anyEmail@gmail.com" Margin="13,17,0,0" HorizontalAlignment="Left" Width="310" Height="40" VerticalAlignment="Top"/>
+        <TextBox  Template="{StaticResource StyleTelephone}" Text="+380964444444" Margin="13,64,0,0" HorizontalAlignment="Left" Width="310" Height="40" VerticalAlignment="Top"/>
+    </Grid>
+</Window>
